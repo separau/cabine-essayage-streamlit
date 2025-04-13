@@ -1,25 +1,18 @@
-
 import streamlit as st
-from PIL import Image
 
-# Configuration de la page
-st.set_page_config(page_title="Cabine d’essayage virtuelle", page_icon="👗", layout="wide")
+st.set_page_config(page_title="Accueil", layout="wide")
 
-# Titre principal
-st.markdown("<h1 style='text-align: center;'>👗 Bienvenue dans la cabine d’essayage virtuelle</h1>", unsafe_allow_html=True)
+# Titre principal avec icône
+st.markdown("<h1 style='font-size: 3em;'>👗 Bienvenue dans la cabine d’essayage virtuelle</h1>", unsafe_allow_html=True)
 
-# Charger l'image d'accueil
-try:
-    image_path = "images/home.png"  # Assurez-vous que ce fichier est bien présent
-    image = Image.open(image_path)
-    st.image(image, caption="", use_container_width=True)
-except FileNotFoundError:
-    st.warning("L'image d'accueil 'home.png' est introuvable. Veuillez la placer dans le dossier 'images'.")
+# Alerte sur la dépréciation (optionnel)
+st.info("ℹ️ Le paramètre `use_column_width` a été supprimé. Veuillez utiliser `use_container_width` à la place.")
 
-# Description
-st.markdown("""
-<div style='text-align: center; font-size:18px;'>
-Cette application vous permet d’essayer virtuellement des vêtements grâce à votre <b>webcam</b> ou en <b>uploadant une photo</b> 📸<br><br>
+# Image de bienvenue
+st.image("images/home.png", use_column_width=True)
+
+# Description de l'application
+st.write("""
+Cette application vous permet d’essayer virtuellement des vêtements grâce à votre **webcam** ou en **uploadant une photo** 🖼️  
 👉 Utilisez le menu à gauche pour accéder à l’essayage.
-</div>
-""", unsafe_allow_html=True)
+""")
